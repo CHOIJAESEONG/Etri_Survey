@@ -1,0 +1,78 @@
+<h1>쿼리아이디 = <%= @secondQuerySurvey.queryID %>, 샷아이디 = <%= @secondQuerySurvey.shotID %> 설문을 수정합니다.</h1>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/signup', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, 'SecondQuerySurvey') %>
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-centered">
+    <%= form_for(@secondQuerySurvey, :url => "/admin/second_query_survey/edit",  :html => {name: 'secondQuerySurvey', method: 'POST'}) do |f| %>
+      <%= f.hidden_field :queryID, class: 'form-control' %>
+      <%= f.hidden_field :shotID, class: 'form-control' %>
+        <div class="form-group form-inline">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :유사도 %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :similarity, class: 'form-control'%>
+		    </div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :부합도 %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :correct, class: 'form-control' %>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group form-inline">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :preference %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :preference, class: 'form-control'%>
+		    </div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :사유 %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :reason, class: 'form-control' %>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group form-inline">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :선택여부 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">														
+			  <div class="btn-group btn-group-justified " data-toggle="buttons"  style="display:inline-block;">
+			  	<% if @secondQuerySurvey.isSelect == false %>
+				<div class="btn-group" >
+				  <label class="btn btn-default">
+					<%= f.label :"O" %><%= f.radio_button :isSelect, 'true' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default active">
+					<%= f.label :"X" %><%= f.radio_button :isSelect, 'false' %>
+				  </label>									
+			    </div>
+			    <% else %>
+			    <div class="btn-group" >
+				  <label class="btn btn-default active">
+					<%= f.label :"O" %><%= f.radio_button :isSelect, 'true' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default">
+					<%= f.label :"X" %><%= f.radio_button :isSelect, 'false' %>
+				  </label>									
+			    </div>
+			    <% end %>
+			  </div>									
+		    </div>
+		  </div>
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified" >저장</button>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="container row-centered" style="width:70%; align:center">
+  <form name="signup" class="new_user row-centered" id="new_user" action="/home/finish_signup_commit" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;"/>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label class="email optional" for="user_email" style="visibility:hidden">E-mail</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered" style="visibility:hidden">
+        <input class="form-control" type="email" required="required" pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" name="user[email]" id="user_email" value='<%= @user.email %>'/>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_name">이름</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="text" required="required" name="user[name]" id="user_name"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_birthday_1i">생년월일</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="date" required="required" name="user[birthday]" id="user_birthday"/>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_hobby">취미</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="text" required="required" name="user[hobby]" id="user_hobby"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_company">직장</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="text" required="required" name="user[company]" id="user_company"/>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_sex">성별</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+        <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+          <div class="btn-group">
+            <label class="btn btn-default active">
+              <label for="user_남자">남자</label><input type="radio" value="M" checked="checked" name="user[sex]" id="user_sex_m"/>
+            </label>
+          </div>
+          <div class="btn-group">
+            <label class="btn btn-default">
+              <label for="user_여자">여자</label><input type="radio" value="F" name="user[sex]" id="user_sex_f"/>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_phone">핸드폰</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="text" required="required" name="user[phone]" id="user_phone"/>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_결혼 여부">결혼 여부</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+        <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+          <div class="btn-group">
+            <label class="btn btn-default active">
+              <label for="user_기혼">기혼</label><input type="radio" value="T" checked="checked" name="user[married]" id="user_married_t"/>
+            </label>
+          </div>
+          <div class="btn-group">
+            <label class="btn btn-default">
+              <label for="user_미혼">미혼</label><input type="radio" value="F" name="user[married]" id="user_married_f"/>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_job">직업</label>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+        <input class="form-control" type="text" required="required" name="user[job]" id="user_job"/>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+        <label for="user_자식 유무">자식 유무</label><br>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+        <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+          <div class="btn-group">
+            <label class="btn btn-default active">
+              <label for="user_자녀 있음">자녀 있음</label><input type="radio" value="T" checked="checked" name="user[children]" id="user_children_t"/>
+            </label>
+          </div>
+          <div class="btn-group">
+            <label class="btn btn-default">
+              <label for="user_자녀 없음">자녀 없음</label><input type="radio" value="F" name="user[children]" id="user_children_f"/>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-default btn-lg btn-block">저장
+        <span class="glyphicon glyphicon-floppy-disk" style="vertical-align: text-top;"></span>
+      </button>
+  </div>
+  </form>
+</div>

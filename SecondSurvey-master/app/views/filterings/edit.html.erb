@@ -1,0 +1,46 @@
+<h1><%= @filtering.sUserID %>의 필터링을 수정합니다.</h1>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/filtering', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, 'Filtering') %>
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3 col-centered">
+    <%= form_for(@filtering, :url => "/admin/filterings/edit#{@filtering.sUserID}",  :html => {name: 'filter', method: 'POST'}) do |f| %>
+      <%= f.hidden_field :sUserID, class: 'form-control' %>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      	<%= f.label :"좋아하는 사이트" %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+      	<%= f.select :serviceProvider, 
+      		[['Youtube', 'Youtube'], ['Facebook', 'Facebook'],
+      		 ['Instagram', 'Instagram'], ['Naver TV캐스트', 'Naver TV캐스트'],
+      		 ['Daum TV팟', 'Daum TV팟'], ['afreeca TV', 'afreeca TV']], {},
+      		 {class: 'form-control'} %>
+      </div>
+      
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      	<%= f.label :"시청 등급" %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+      	<%= f.select :degree, 
+      		[['청소년관람불가', '청소년관람불가'], ['15세 이상 관람가', '15세 이상 관람가'],
+      		 ['12세 이상 관람가', '12세 이상 관람가'], ['전체관람가', '전체관람가']], {},
+      		 {class: 'form-control'} %>
+      </div>
+      
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      	<%= f.label :"시청 가격" %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+		<%= f.select :price, 
+      		[['무료', '무료'], ['1,000 원 이하', '1,000 원 이하'],
+      		 ['5,000원 이하', '5,000원 이하'], ['10,000 원 이하', '10,000 원 이하']], {},
+      		 {class: 'form-control'} %>
+      </div>
+      
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified" >저장</button>
+    <% end %>
+  </div>
+</div>

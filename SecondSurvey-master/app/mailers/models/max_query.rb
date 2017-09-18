@@ -1,0 +1,2 @@
+class MaxQuery < ApplicationRecord
+end

@@ -1,0 +1,53 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/filtering', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, 'Filtering') %>
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-9 col-md-6 col-lg-5 col-centered">
+    <%= form_for(@filtering, :url => 'filtering',  :html => {name: 'filter'}) do |f| %>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      	<%= f.label :"좋아하는 사이트" %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+      	<%= f.select :serviceProvider, 
+      		[['Youtube', 'Youtube'], ['Facebook', 'Facebook'],
+      		 ['Instagram', 'Instagram'], ['Naver TV캐스트', 'Naver TV캐스트'],
+      		 ['Daum TV팟', 'Daum TV팟'], ['afreeca TV', 'afreeca TV']], {},
+      		 {class: 'form-control'} %>
+      </div>
+      
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      	<%= f.label :"시청 등급" %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+      	<%= f.select :degree, 
+      		[['청소년관람불가', '19'], ['15세 이상 관람가', '15'],
+      		 ['12세 이상 관람가', '12'], ['전체관람가', '0']], {},
+      		 {class: 'form-control'} %>
+      </div>
+      
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered" style="padding-right: 0px;">
+      	<%= f.label :"시청 가격", :id => 'view_price' %>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-centered">
+		<%= range_field( :filtering, :price, in:0..20000) %>
+      </div>
+	  <script>
+		var price=document.getElementById("filtering_price");
+		var label=document.getElementById("view_price");
+		price.addEventListener("input", function() {
+			label.innerHTML = "시청 가격: &nbsp;" + price.value+"원";
+		}, false); 
+		price.addEventListener("change", function() {
+			label.innerHTML = "시청 가격: &nbsp;" + price.value+"원";
+		}, false); 
+		(label.onload=function(){label.innerHTML = "시청 가격: &nbsp;" + price.value+"원";})();
+	  </script>
+      
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified" >저장
+		<span class="glyphicon glyphicon-floppy-disk"></span>
+	  </button>
+    <% end %>
+  </div>
+</div>

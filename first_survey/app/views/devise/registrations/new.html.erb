@@ -1,0 +1,42 @@
+
+
+<div class="container row row-centered">
+
+      <h1>회원가입</h1>
+
+      <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3 col-centered">
+          <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+
+              <div class="form-group sm-10">
+                <label for="user_email">E-mail</label><br />
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input class="form-control" autofocus="autofocus" placeholder="@를 포함한 email형식" type="email" pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" required="required" name="user[email]" id="user_email" />
+                </div>
+              </div>
+
+              <div class="form-group sm-10">
+                <label for="user_password">비밀번호</label><br />
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input class="form-control" autocomplete="off" placeholder="6글자 이상 입력하세요." type="password" required="required" pattern=".{6,}" name="user[password]" id="user_password" />
+                </div>
+              </div>
+
+              <div class="form-group sm-10">
+                <label for="user_password_confirmation">비밀번호 확인</label><br />
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <input class="form-control" autocomplete="off" type="password" required="required" pattern=".{6,}" name="user[password_confirmation]" id="user_password_confirmation" />
+                </div>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="btn btn-lg btn-default btn-group-justified" style="margin-top:80px" name="commit" value="가입하기" data-disable-with="가입하기">가입하기
+            			<span class="glyphicon glyphicon-floppy-disk" style="vertical-align: text-top;"></span>
+            		</button>
+              </div>
+          </form>
+      </div>
+</div> <!-- /container -->

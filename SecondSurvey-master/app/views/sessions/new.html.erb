@@ -1,0 +1,45 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/login', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, "Log in") %>
+
+<div class="row row-centered">
+  <!--login section-->
+  <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3 col-centered">
+  	<!--login text bar-->
+	<div class="form-login-header">
+	</div>
+
+	<%= form_for(:session, url: login_path, :html => {name: 'login'}) do |f| %>
+
+	<!--id section-->
+	<div class="input-group">
+	  <span class="input-group-addon">
+		<i class="glyphicon glyphicon-user" ></i>
+	  </span>
+      <%= f.text_field :sUserID, class: 'form-control', placeholder: '아이디', required: true %>
+    </div>
+
+    <!--pw section-->
+	<div class="input-group">
+	  <span class="input-group-addon">
+		<i class="glyphicon glyphicon-lock" ></i>
+	  </span>
+      <%= f.password_field :password, class: 'form-control', placeholder: '비밀번호', required: true %>
+    </div>
+
+	<!--button section-->
+	<button type="submit" class="btn btn-default btn-lg btn-block">
+	  <span class="glyphicon glyphicon-log-in" style="vertical-align: text-top;"></span>
+		로그인
+	</button>
+
+	<%= link_to '<button type="button" class="btn btn-default btn-lg btn-block">
+				   <span class="glyphicon glyphicon-book" style="vertical-align: text-top;"></span>
+					   회원가입
+				 </button>'.html_safe,
+				  :controller => 'users', :action => 'new', :method => :get %>
+    <% end %>
+  </div>
+</div>

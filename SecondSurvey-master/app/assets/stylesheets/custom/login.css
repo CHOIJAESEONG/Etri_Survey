@@ -1,0 +1,27 @@
+
+
+/*login text bar*/
+form[name="login"] .form-login-header {
+	background-color: #fff;
+	box-sizing: border-box;
+	text-align:center;
+	border-bottom-width:2px;
+	border-bottom-style:solid;
+	border-bottom-color:#eee;
+	padding-bottom: 15px;
+}
+/*login form object margin*/
+form[name="login"] div[class="input-group"], form[name="login"] button {
+	margin-top: 15px !important;
+}
+
+form[name="login"] a {
+	text-decoration: none !important;
+}
+
+/*
+form[name="login"] input:required:focus {
+	border: 1px solid red;
+	outline: none;
+}
+*/

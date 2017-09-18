@@ -1,0 +1,2 @@
+class FirstSurvey < ApplicationRecord
+end

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>K-CIA Survey</title>
+    <%= csrf_meta_tags %>
+    <!-- bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <%= stylesheet_link_tag    'custom/bootstrap/css/bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'custom/bootstrap/css/navvar_color', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'custom/set_font', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'custom/set_grid', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'custom/jquery-ui-1.12.1.custom/jquery-ui', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid">
+	  <!--header start-->
+	  <div class="row">
+		<!--cl image-->
+		<div class="col-xs-12">
+          <a class="navbar navbar-default" href="/"><%= image_tag 'logo.png' %></a>
+        </div>
+
+		<!--navigation bar-->
+		<div class="col-xs-12">
+		  <nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar" >
+			  <ul class="nav navbar-nav">
+				<li><a href="/">홈</a></li>
+        <li><a href="/preference/get_html">1차 설문</a></li>
+        <!--<li><a href="/second">2차 설문</a></li> -->
+        <li><a href="/">진행상황&amp;문의</a></li>
+        <% unless current_user.nil? %>
+          <li><%= link_to "로그아웃", destroy_user_session_path, method: "delete" %></li>
+        <% end %>
+			  </ul>
+			</div>
+		  </div>
+		  </nav>
+		</div>
+		<!--navigation bar end-->
+	</div>
+	</div>
+
+    <div class="container">
+
+      <%= yield %>
+
+    </div> <!-- /container -->
+
+    <!-- include javascript -->
+    <%= javascript_include_tag    'custom/jquery-3.1.1.min', 'custom/bootstrap/js/bootstrap.min', 'custom/jquery-ui-1.12.1.custom/jquery-ui' %>
+	<!--[if lt IE 9]>
+	<%= javascript_include_tag    'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min', 'https://oss.maxcdn.com/respond/1.4.2/respond.min' %>
+	<![endif]-->
+
+	<!-- different JavaScript each page -->
+	<%= yield :tail %>
+  </body>
+</html>

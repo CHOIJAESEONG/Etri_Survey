@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+  th {
+    font-size: 20px;
+  }
+  
+  td {
+    border: 1px solid #f0f0f0;
+  }
+</style>
+
+<h1>1차설문 리스트</h1>
+
+<table width=100%>
+  <thead>
+    <tr>
+      <th>아이디</th>
+      <th>유저아이디</th>
+      <th>cID</th>
+      <th>shotID</th>
+      <th>선호도</th>
+      <th>사유</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @first_surveys.each do |first_survey| %>
+      <tr>
+      	<td width=15%><%= first_survey.id %></td>
+        <td width=15%><%= first_survey.sUserID %></td>
+        <td width=5%><%= first_survey.cID %></td>
+        <td width=5%><%= first_survey.shotID %></td>
+        <td width=10%><%= first_survey.preference %></td>
+        <td width=40%><%= first_survey.reason %></td>
+        <td class="menu" width=20px><%= link_to '수정', "/admin/first/edit#{first_survey.id}" %></td>
+        <td class="menu" width=20px><%= link_to '삭제', "/admin/first/delete?id=#{first_survey.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

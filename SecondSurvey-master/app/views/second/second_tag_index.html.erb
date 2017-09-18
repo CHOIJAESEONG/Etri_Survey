@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+  th {
+    font-size: 20px;
+  }
+  
+  td {
+    border: 1px solid #f0f0f0;
+  }
+</style>
+
+<h1>2차 태그 리스트</h1>
+
+<table width=100%>
+  <thead>
+    <tr>
+      <th>쿼리아이디</th>
+      <th>샷아이디</th>
+      <th>태그</th>
+      <th>태그아이디</th>
+      <th>태그점수</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+      	<td width=10%><%= tag.queryID %></td>
+        <td width=10%><%= tag.shotID %></td>
+        <td width=60%><%= tag.tagDesc %></td>
+        <td width=10%><%= tag.tagID %></td>
+        <td width=10%><%= tag.tagScore %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

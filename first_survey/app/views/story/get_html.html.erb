@@ -1,0 +1,122 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/video_js/video-js', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'custom/modal', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'custom/jquery.rateyo.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'custom/image_picker/image-picker.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!--
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.0/image-picker.min.css" />
+	-->
+<% end %>
+
+<% provide(:title, 'First survey') %>
+<!--body start-->
+<div class="row row-centered">
+	<!--loading bar-->
+	<div class="col-xs-12 col-centered">
+		<div class="progress" style="display:none;">
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+				동영상을 받아오고 있습니다.
+			</div>
+		</div>
+	</div>
+	<!--loading bar end-->
+
+	<!--download method select button-->
+	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-centered" id="down_method" style="display:none;">
+		<div class="form-inline" style="text-align:center">
+			<label style="vertical-align: middle;">동영상이 끊기나요?</label>
+			<div class="btn-group" id="method_btn" data-toggle="buttons" style="display:none;">
+				<div class="btn-group">
+					<label class="btn btn-default" id="touch" >
+						<label for="touch">끊겨요</label><input type="radio" value="touch" checked="checked" >
+					</label>
+				</div>
+				<div class="btn-group">
+					<label class="btn btn-default active" id="pc" >
+						<label for="pc">잘 돼요</label><input type="radio" value="pc">
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix" style="margin-top:3px;"></div>
+	<!--download method select button-->
+
+	<!--video section-->
+	<div class="col-xs-12 col-lg-9 col-centered" id="video_form" style="display:none;">
+		<video id="video" class="video-js vjs-default-skin vjs-big-play-centered   vjs-16-9"
+			data-setup='{"autoplay":false,"controls": true,"preload": "auto",
+			"inactivityTimeout": 0,"language":"ko","loop": false}'>
+		<!--<source src="" type='video/mp4'>-->
+		</video>
+	</div>
+	<!--video section end-->
+
+	<!--survey section-->
+	<div class="col-xs-12 col-lg-9 col-centered" id="survey_form" style="float:none;" >
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body form-horizontal">
+
+						<div class="5w1h" id="comment" style="display:none; color:gray;">
+							7칸 중 최소 2칸을 아래와 같은 예처럼 채워주세요<br>
+							질의에 관련된 영상이 다음 페이지에 나오면서 설문이 시작됩니다.
+						</div>
+
+						<div class="form-group  equal">
+							<label for="equal" class="col-xs-4 col-sm-4 col-md-2 col-lg-2" style="padding-right:0px; padding-top:10px;">유사도(첫번째 선택한 영상과 두번째 선택한 영상이 얼마나 유사한지):</label>
+							<div id="equal" class="col-xs-8 col-sm-8 col-md-10 col-lg-10" ></div>
+						</div>
+						<div class="clearfix" style="margin-top:3px;"></div>
+
+						<div class="form-group  coincidence">
+							<label for="coincidence" class="col-xs-4 col-sm-4 col-md-2 col-lg-2" style="padding-right:0px; padding-top:10px;">부합도(내가 질문한 내용과 영상이 얼마나 맞는지):</label>
+							<div id="coincidence" class="col-xs-8 col-sm-8 col-md-10 col-lg-10" ></div>
+						</div>
+						<div class="clearfix" style="margin-top:3px;"></div>
+
+						<div class="form-group  rating">
+							<label for="rateYo" class="col-xs-4 col-sm-4 col-md-2 col-lg-2" style="padding-right:0px; padding-top:10px;">선호도(화질, 음질 등이 어떠한지):</label>
+							<div id="rateYo" class="col-xs-8 col-sm-8 col-md-10 col-lg-10" ></div>
+						</div>
+						<div class="clearfix" style="margin-top:3px;"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="next_btn">
+							다음
+							<span class="glyphicon glyphicon-circle-arrow-right"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--survey section end-->
+</div>
+<!--body end-->
+
+<% content_for :tail do %>
+	<%= javascript_include_tag 'custom/video_js/video', 'custom/video_control_2-2', 'custom/jquery.rateyo.min', 'custom/image_picker/image-picker.min.js' %>
+	<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/image-picker/0.3.0/image-picker.min.js"></script>
+	-->
+	<script>
+		var vid_tag_id="video";
+		var video_link="0";
+		var start_list= [0.0];
+		var end_list= [0.1];
+		var shot_id_list = [0];
+		var totalShot = 9800;
+		var count=0;
+		var queryIDList=0;
+		var totalScoreList=0;
+		var thumbList=0;
+		var surv=[];
+	</script>
+<% end %>

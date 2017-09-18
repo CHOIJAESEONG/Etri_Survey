@@ -1,0 +1,169 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/signup', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'custom/bootstrap/datepicker/css/bootstrap-datepicker3', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, 'Edit') %>
+<!--body start-->
+<div class="row row-centered">
+  <!--signup section-->
+	  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-centered">
+	    <%= form_for(@user, url: users_edit_path, :method => :POST, :html => {name: 'signup'}) do |f| %>
+      	<%= render 'shared/error_messages' %>
+	      <div class="form-group form-inline">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :아이디 %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :sUserID, class: 'form-control', readonly: true %>
+		    </div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :이름 %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :name, class: 'form-control' %>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group form-inline">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :생년월일 %>
+			</div>
+		  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+			  <%= f.text_field :birthday, class: 'form-control', readonly: 'true' %>
+			</div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :성별 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">														
+			  <div class="btn-group btn-group-justified " data-toggle="buttons"  style="display:inline-block;">
+			  	<% if is_false @user.sex %>
+				<div class="btn-group" >
+				  <label class="btn btn-default">
+					<%= f.label :"남자" %><%= f.radio_button :sex, 'M' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default active">
+					<%= f.label :"여자" %><%= f.radio_button :sex, 'F' %>
+				  </label>									
+			    </div>
+			    <% else %>
+			    <div class="btn-group" >
+				  <label class="btn btn-default active">
+					<%= f.label :"남자" %><%= f.radio_button :sex, 'M' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default">
+					<%= f.label :"여자" %><%= f.radio_button :sex, 'F' %>
+				  </label>									
+			    </div>
+			    <% end %>
+			  </div>									
+		    </div>
+		  </div>
+						
+		  <div class="form-group form-inline">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :핸드폰 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :phone, class: 'form-control' %>
+			</div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :"결혼 여부" %><br>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">														
+			  <div class="btn-group btn-group-justified " data-toggle="buttons"  style="display:inline-block;">
+			  	<% if is_false @user.married %>
+				<div class="btn-group" >
+				  <label class="btn btn-default">
+					<%= f.label :"기혼" %><%= f.radio_button :married, 'T' %>
+				  </label>
+				</div>
+				<div class="btn-group">
+				  <label class="btn btn-default active">
+					<%= f.label :"미혼" %><%= f.radio_button :married, 'F' %>
+				  </label>									
+				</div>
+				<% else %>
+				<div class="btn-group" >
+				  <label class="btn btn-default active">
+					<%= f.label :"기혼" %><%= f.radio_button :married, 'T' %>
+				  </label>
+				</div>
+				<div class="btn-group">
+				  <label class="btn btn-default">
+					<%= f.label :"미혼" %><%= f.radio_button :married, 'F' %>
+				  </label>									
+				</div>
+				<% end %>
+			  </div>									
+			</div>
+		  </div>
+						
+		  <div class="form-group form-inline">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :직업 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+			  <%= f.text_field :job, class: 'form-control'  %>
+			</div>
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :"자식 유무" %><br>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">														
+			  <div class="btn-group btn-group-justified " data-toggle="buttons"  style="display:inline-block;">
+			  	<% if is_false @user.children %>
+				<div class="btn-group" >
+	   			  <label class="btn btn-default">
+					<%= f.label :"자녀 있음" %><%= f.radio_button :children, 'T' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default active">
+					<%= f.label :"자녀 없음" %><%= f.radio_button :children, 'F' %>
+				  </label>									
+			    </div>
+			    <% else %>
+			    <div class="btn-group" >
+	   			  <label class="btn btn-default active">
+					<%= f.label :"자녀 있음" %><%= f.radio_button :children, 'T' %>
+				  </label>
+				</div>
+			    <div class="btn-group">
+				  <label class="btn btn-default">
+					<%= f.label :"자녀 없음" %><%= f.radio_button :children, 'F' %>
+				  </label>									
+			    </div>
+			    <% end %>
+			  </div>									
+			</div>
+		  </div>
+						
+		  <div class="form-group form-inline">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :직장 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+			  <%= f.text_field :company, class: 'form-control'  %>
+			</div>
+							
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+			  <%= f.label :취미 %>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+			  <%= f.text_field :hobby, class: 'form-control'  %>
+			</div>
+		  </div>				
+		  <button type="submit" class="btn btn-lg btn-default btn-group-justified" >저장
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+		  </button>			
+	    <% end %>
+	  </div>
+</div>
+
+<% content_for :tail do %>
+  <%= javascript_include_tag    'custom/bootstrap/datepicker/js/bootstrap-datepicker', 'custom/bootstrap/datepicker/locales/bootstrap-datepicker.kr.min', 'custom/datepicker', 'custom/no-kor' %>
+<% end %>

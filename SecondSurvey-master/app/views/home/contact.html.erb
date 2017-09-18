@@ -1,0 +1,96 @@
+<% provide(:title, 'Sign up') %>
+	<!--body start-->
+		<div class="row row-centered">		
+			<div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 col-centered table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>
+								<span class="glyphicon glyphicon-check" style="vertical-align:text-top;"></span>
+								1차 설문 :
+							</th>
+							<th colspan="2">
+								<%= (@user.currentShot / (@lastShot.id.to_f + 1) * 100).round(2) %> % 완료
+							</th>
+						<tr>
+						
+						<tr>
+							<th>
+								<span class="glyphicon glyphicon-check" style="vertical-align:text-top;"></span>
+								2차 설문 :
+							</th>
+							<th colspan="2">
+								<%= @queries %> 질문 (최소 200) / <%= @user.querys %> 개 (최대 <%= @max.max %>)
+							</th>
+						<tr>
+					</thead>
+					<tbody></tbody>
+					<thead>
+						<tr>
+							<th>
+								설문조사 관련
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-earphone" style="vertical-align:text-top;"></span> H·P
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-envelope" style="vertical-align:text-top;"></span> E·Mail
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								임수진 연구원<p></p>
+							</td>
+							<td>
+								010-9246-0731
+							</td>
+							<td>
+								<a href="mailto:imsujin91@k-cia.or.kr">imsujin91@k-cia.or.kr</a>
+							</td>
+							
+						</tr>
+					</tbody>	
+					<thead>
+						<tr>
+							<th>
+								웹 페이지 관련
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-earphone" style="vertical-align:text-top;"></span> H·P
+							</th>
+							<th>
+								<span class="glyphicon glyphicon-envelope" style="vertical-align:text-top;"></span> E·Mail
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								강영주 연구원
+							</td>
+							<td>
+								010-5491-7795
+							</td>
+							<td>
+								<a href="mailto:youngzootopia@k-cia.or.kr">youngzootopia@k-cia.or.kr</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								배진수 연구원
+							</td>
+							<td>
+								010-2934-8409
+							</td>
+							<td>
+								<a href="mailto:jsbae@k-cia.or.kr">jsbae@k-cia.or.kr</a>
+							</td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	<!-- /body end -->

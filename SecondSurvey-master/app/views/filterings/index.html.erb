@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+  th {
+    font-size: 20px;
+  }
+  
+  td {
+    border: 1px solid #f0f0f0;
+  }
+</style>
+
+<h1>필터링 리스트</h1>
+
+<table width=100%>
+  <thead>
+    <tr>
+      <th>유저 아이디</th>
+      <th>Service provider</th>
+      <th>시청 등급</th>
+      <th>시청 가격</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filterings.each do |filtering| %>
+      <tr>
+      	<td width=20%><%= filtering.sUserID %></td>
+        <td width=20%><%= filtering.serviceProvider %></td>
+        <td width=20%><%= filtering.degree %></td>
+        <td width=20%><%= filtering.price %></td>
+        <td class="menu" width=20px><%= link_to '수정', "/admin/filterings/edit#{filtering.sUserID}" %></td>
+        <td class="menu" width=20px><%= link_to '삭제', "/admin/filterings/delete?sUserID=#{filtering.sUserID}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '추가', "/admin/filterings/admin_new" %>

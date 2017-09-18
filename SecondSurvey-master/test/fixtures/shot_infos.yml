@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ShotID: 1
+  ShotNum: 1
+  StartFrame: 1
+  EndFrame: 1
+  ThumbURL: MyString
+  CID: 1
+
+two:
+  ShotID: 1
+  ShotNum: 1
+  StartFrame: 1
+  EndFrame: 1
+  ThumbURL: MyString
+  CID: 1

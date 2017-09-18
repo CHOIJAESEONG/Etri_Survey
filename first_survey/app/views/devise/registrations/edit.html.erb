@@ -1,0 +1,165 @@
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-centered">
+  <h2>내 정보 변경</h2>
+  <form class="edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;"/>
+    <input type="hidden" name="_method" value="put"/>
+
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+      <label for="user_email">Email</label>
+    </div><br/>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      <input autofocus="autofocus" readonly="readonly" type="email" value="user[email]" name="user[email]" id="user_email"/>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for:
+      <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+      <label for="user_password">변경 비밀번호</label><br/>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      <input autocomplete="off" placeholder="6글자 이상을 입력하세요." type="password" name="user[password]" id="user_password"/>
+    </div>
+
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+      <label for="user_password_confirmation">비밀번호 확인</label><br/>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      <input autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation"/>
+    </div>
+
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+      <label for="user_current_password">현재 비밀번호</label>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+      <input autocomplete="off" type="password" name="user[current_password]" id="user_current_password"/>
+    </div>
+
+    <button type="submit" class="btn btn-lg btn-default btn-group-justified">변경 저장
+      <span class="glyphicon glyphicon-floppy-disk"></span>
+    </button>
+  </form>
+</div>
+</div>
+
+<div class="row row-centered">
+  <!--signup section-->
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-centered">
+    <form name="signup" class="edit_user" id="edit_user_wotjd1213" action="/users/edit" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+      <div class="form-group form-inline">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_email">Email</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" readonly="readonly" type="text" value="user[sUserID]" name="user[sUserID]" id="user_sUserID"/>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_이름">이름</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" type="text" value="최재성" name="user[name]" id="user_name"/>
+        </div>
+      </div>
+
+      <div class="form-group form-inline">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_생년월일">생년월일</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" readonly="readonly" type="text" value="2017-08-21" name="user[birthday]" id="user_birthday"/>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_성별">성별</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+          <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+            <div class="btn-group">
+              <label class="btn btn-default active">
+                <label for="user_남자">남자</label><input type="radio" value="M" checked="checked" name="user[sex]" id="user_sex_m"/>
+              </label>
+            </div>
+            <div class="btn-group">
+              <label class="btn btn-default">
+                <label for="user_여자">여자</label><input type="radio" value="F" name="user[sex]" id="user_sex_f"/>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-inline">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_핸드폰">핸드폰</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" type="text" value="1111" name="user[phone]" id="user_phone"/>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_결혼 여부">결혼 여부</label><br>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+          <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+            <div class="btn-group">
+              <label class="btn btn-default active">
+                <label for="user_기혼">기혼</label><input type="radio" value="T" checked="checked" name="user[married]" id="user_married_t"/>
+              </label>
+            </div>
+            <div class="btn-group">
+              <label class="btn btn-default">
+                <label for="user_미혼">미혼</label><input type="radio" value="F" name="user[married]" id="user_married_f"/>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-inline">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_직업">직업</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" type="text" value="1111" name="user[job]" id="user_job"/>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_자식 유무">자식 유무</label><br>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered ">
+          <div class="btn-group btn-group-justified " data-toggle="buttons" style="display:inline-block;">
+            <div class="btn-group">
+              <label class="btn btn-default active">
+                <label for="user_자녀 있음">자녀 있음</label><input type="radio" value="T" checked="checked" name="user[children]" id="user_children_t"/>
+              </label>
+            </div>
+            <div class="btn-group">
+              <label class="btn btn-default">
+                <label for="user_자녀 없음">자녀 없음</label><input type="radio" value="F" name="user[children]" id="user_children_f"/>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-inline">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_직장">직장</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" type="text" value="1111" name="user[company]" id="user_company"/>
+        </div>
+
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+          <label for="user_취미">취미</label>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+          <input class="form-control" type="text" value="1111" name="user[hobby]" id="user_hobby"/>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified">저장
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+      </button>
+      <%= link_to "Back", :back %>
+    </form>
+  </div>
+</div>

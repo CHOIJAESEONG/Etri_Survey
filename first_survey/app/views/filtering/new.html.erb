@@ -1,0 +1,8 @@
+<h2>설문 정보 입력</h2>
+
+<%= simple_form_for @filtering, input_html: { class: 'form_class'}, :url => '/filtering/create' do |f| %>
+  <%= f.input :service_provider %>
+  <%= f.input :degree %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  queryID: 1
+  shotID: 1
+  totalScore: 1
+  correct: 1
+  preference: 1
+  reason: MyString
+  isSelect: false
+
+two:
+  queryID: 1
+  shotID: 1
+  totalScore: 1
+  correct: 1
+  preference: 1
+  reason: MyString
+  isSelect: false

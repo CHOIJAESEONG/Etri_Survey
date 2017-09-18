@@ -1,0 +1,2 @@
+class FirstQuery < ApplicationRecord
+end

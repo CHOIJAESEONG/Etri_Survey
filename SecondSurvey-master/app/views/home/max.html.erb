@@ -1,0 +1,25 @@
+<h1>2차 쿼리의 샷 개수를 정합니다.</h1>
+<h3>100개의 쿼리(1차 100, 2차 100, 총 200)를 원하시면</h3>
+<h3>100 * 2(1차, 2차 쿼리) * 10(한 쿼리당 최대 샷 개수) = 2000</h3>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag    'custom/signup', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% provide(:title, 'FirstSurvey') %>
+<div class="row row-centered">
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-centered">
+    <%= form_for(@max, :url => "/admin/max", :html => {name: 'max', method: 'POST'}) do |f| %>
+      <%= f.hidden_field :id, class: 'form-control' %>
+        <div class="form-group form-inline">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-centered">
+		      <%= f.label :"최대 쿼리 샷 개수" %>
+		    </div>
+		    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-centered">
+		      <%= f.text_field :max, class: 'form-control'%>
+		    </div>
+		  </div>
+      <button type="submit" class="btn btn-lg btn-default btn-group-justified" >저장</button>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+class SecondQuery < ApplicationRecord
+end

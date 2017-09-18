@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  queryID: 1
+  shotID: 1
+  tagDesc: MyString
+  tagID: 1
+  tagScore: 1
+
+two:
+  queryID: 1
+  shotID: 1
+  tagDesc: MyString
+  tagID: 1
+  tagScore: 1

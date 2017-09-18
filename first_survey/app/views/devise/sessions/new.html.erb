@@ -1,0 +1,151 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag    'custom/login', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<% provide(:title, "Log in") %>
+<div class="container row row-centered">
+    <!--login section-->
+
+    <!-- 로그인하지 않았다면 -->
+    <% if current_user.nil? %>
+    <h2 style="text-align:center">로그인</h2>
+    <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3 col-centered">
+        <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;"/><input type="hidden" name="authenticity_token" value="POx368AaJpXbH1kPmFe6XAE6EaA0qpE+xttMFRrMMWqHfW+GtVZZ0zFjbNnbFA7X0i7GtNVzzgCPzkfpWeXvmQ=="/>
+            <div class="form-group sm-10">
+                <label for="user_email">E-mail</label><br/>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input class="form-control" autofocus="autofocus" type="email" pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" required="required" name="user[email]" id="user_email"/>
+                </div>
+            </div>
+
+            <div class="form-group sm-10">
+                <label for="user_password">비밀번호</label><br/>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span>
+                    <input class="form-control" autocomplete="off" type="password" required="required" pattern=".{6,}" name="user[password]" id="user_password"/>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button href="/users/sign_in" type="submit" class="btn btn-default btn-lg btn-block">
+                    <span class="glyphicon glyphicon-log-in" style="vertical-align: text-top"></span>
+                    로그인
+                </button>
+            </div>
+        </form>
+        <a href="/users/sign_up">
+            <button class="btn btn-default btn-lg btn-block" style="margin-top:5px">
+                <span class="glyphicon glyphicon-book" style="vertical-align: text-top;"></span>
+                회원가입
+            </button>
+        </a>
+        <div style="margin-top:5px">
+            <a href="/users/auth/facebook"><%= image_tag 'facebook_account_btn.png' %></a><br/></div>
+        <div style="margin-top:5px">
+            <a href="/users/auth/kakao"><%= image_tag 'kakao_account_login_btn_medium_wide.png' %></a><br/></div>
+        <div style="margin-top:5px">
+            <a href="/users/auth/naver"><%= image_tag 'naver_account_login_btn.png' %></a><br/></div>
+
+    </div>
+
+    <!-- 로그인 했다면 -->
+<% else %>
+    <!--body start-->
+    <div class="row row-centered">
+        <div class="col-xs-12 col-sm-9 col-md-6 col-lg-6 col-centered table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="glyphicon glyphicon-check" style="vertical-align:text-top;"></span>
+                            1차 설문 :
+                        </th>
+                        <th colspan="2">
+                            설문 진행상황
+                            <%=(@current_progress/@totalShot*100).round(2)%>% 완료
+                        </th>
+                        <tr>
+
+                            <!-- 2차 설문 -->
+                        </thead>
+                        <tbody></tbody>
+                        <thead>
+                            <tr>
+                                <th>
+                                    설문조사 관련
+                                </th>
+                                <th>
+                                    <span class="glyphicon glyphicon-earphone" style="vertical-align:text-top;"></span>
+                                    H·P
+                                </th>
+                                <th>
+                                    <span class="glyphicon glyphicon-envelope" style="vertical-align:text-top;"></span>
+                                    E·Mail
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    임수진 연구원<p></p>
+                                </td>
+                                <td>
+                                    010-9246-0731
+                                </td>
+                                <td>
+                                    <a href="mailto:imsujin91@k-cia.or.kr">imsujin91@k-cia.or.kr</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>
+                                    웹 페이지 관련
+                                </th>
+                                <th>
+                                    <span class="glyphicon glyphicon-earphone" style="vertical-align:text-top;"></span>
+                                    H·P
+                                </th>
+                                <th>
+                                    <span class="glyphicon glyphicon-envelope" style="vertical-align:text-top;"></span>
+                                    E·Mail
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    강영주 연구원
+                                </td>
+                                <td>
+                                    010-5491-7795
+                                </td>
+                                <td>
+                                    <a href="mailto:youngzootopia@gmail.com">youngzootopia@gmail.com</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    최재성 연구원
+                                </td>
+                                <td>
+                                    010-8812-1331
+                                </td>
+                                <td>
+                                    <a href="mailto:wotjd1213@gmail.com">wotjd1213@gmail.com</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <% end %>
+
+        </div>
+        <!-- /container -->
